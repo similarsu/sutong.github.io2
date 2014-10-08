@@ -1,0 +1,21 @@
+---
+layout: post
+title: sqlplus如何访问远程数据库？
+category: 数据库 oracle
+description: 不配置本地net服务名，sqlplus如何访问远程数据库？
+#img: 20140928/1-1.jpg
+keywords: 数据库,oracle,sqlplus,远程
+---
+<p>
+
+<h3>
+不配置本地net服务名，sqlplus如何访问远程数据库？
+</h3>
+<pre class="prettyprint">
+conn username/password@ip[:port]/sid [as sysdba]
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
