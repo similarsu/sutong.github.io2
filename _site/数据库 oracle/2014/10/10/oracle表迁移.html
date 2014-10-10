@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>sqlplus如何访问远程数据库？ 苏同的博客</title>
-        <meta name="keywords" content="数据库,oracle,sqlplus,远程coolearth,博客"/>
+        <title>oracle数据库中表如何迁移？ 苏同的博客</title>
+        <meta name="keywords" content="数据库,oracle,表,迁移coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,19 +22,37 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">sqlplus如何访问远程数据库？</h2>
+            <h2 class="first_title">oracle数据库中表如何迁移？</h2>
             <p class="posted_info">
-                posted by 苏同 on 2014-10-08 分类: <a href="/categorys/数据库 oracle.html">数据库 oracle</a>
+                posted by 苏同 on 2014-10-10 分类: <a href="/categorys/数据库 oracle.html">数据库 oracle</a>
             </p>
             
 			<div class="postcontent">
 			<p>
 
 <h3>
-不配置本地net服务名，sqlplus如何访问远程数据库？
+oracle数据库中表如何迁移？
+</h3>
+<h2 class="content_h2">
+场景如下：将USERS表空间下QUERY用户下的所有表迁移到DATA01表空间
+</h2>
+<h3>
+1、修改用户默认表空间
 </h3>
 <pre class="prettyprint">
-conn username/password@ip[:port]/sid [as sysdba]
+alter user QUERY default tablespace DATA01;
+</pre>
+<h3>
+2、迁移表到新的表空间SQL执行语句
+</h3>
+<pre class="prettyprint">
+select 'alter table '||v.owner||'.'|| v.table_name ||' move tablespace DATA01;' from dba_tables v where v.tablespace_name='USERS' and v.owner='QUERY';
+</pre>
+<h3>
+3、创建索引重建的SQL执行语句
+</h3>
+<pre class="prettyprint">
+select 'alter index '||w.owner||'.'|| w.index_name ||' rebuild tablespace DATA01;' from dba_indexes w where w.owner='QUERY';
 </pre>
 <script type="text/javascript">
 jQuery(function($){
