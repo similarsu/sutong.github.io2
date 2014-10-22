@@ -1,0 +1,20 @@
+---
+layout: post
+title: tomcat报PermGen space错误，如何解决(window)?
+category: 服务器 tomcat
+description: tomcat报PermGen space错误，如何解决(window)?
+img: no.png
+keywords: tomcat,PermGen space
+---
+<h3>
+修改TOMCAT_HOME/bin/catalina.bat，在“echo "Using CATALINA_BASE:   $CATALINA_BASE"”上面加入以下行
+</h3>
+<pre class="prettyprint">
+@set JAVA_OPTS=%JAVA_OPTS% -server -XX:PermSize=128M -XX:MaxPermSize=512M
+</pre>
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
