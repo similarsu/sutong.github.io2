@@ -1,0 +1,31 @@
+---
+layout: post
+title: eclipse maven项目出现如下错误：Enabling Maven Dependency Management，怎么办?
+category: eclipse maven
+description: eclipse maven项目出现如下错误：Enabling Maven Dependency Management，怎么办?
+img: 20141111/1-1.jpg
+keywords: eclipse,maven,Enabling Maven Dependency Management
+---
+<h3>
+eclipse maven项目出现如下错误，怎么办？
+</h3>
+<p>
+<img src="{{ site:url }}/images/20141111/1-1.jpg" alt="pic"/>
+</p>
+<h3>
+1、右键选中你的项目，maven<<disable maven naure
+</h3>
+<h3>
+2、cmd  在doc界面进入到你的项目目录，执行如下代码
+</h3>
+<pre class="prettyprint">
+mvn eclipse:clean
+</pre>
+<h3>
+3、再次进去到eclipse中，右键选中你的项目，Configure << Convert into Maven Projec
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
