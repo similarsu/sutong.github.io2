@@ -1,0 +1,67 @@
+---
+layout: post
+title: vmware中linux与window文件共享？
+category: vmware linux
+description: vmware中linux与window文件共享？
+img: 20150129/1-1.jpg
+keywords: 数据库,mysql,用户,create
+---
+<p>
+
+<h3>
+vmware中linux与window文件共享？
+</h3>
+<h3>
+1、安装vmware tools
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150129/1-1.jpg" alt="pic"/>
+</p>
+<h3>
+2、拷贝VMwareTools-9.9.0-2304977.tar.gz到/tmp
+</h3>
+<pre class="prettyprint">
+mount /dev/cdrom /mnt
+cp /mnt/VMwareTools-9.9.0-2304977.tar.gz /tmp
+</pre>
+<h3>
+3、安装vmware tools
+</h3>
+<pre class="prettyprint">
+tar -zxvf VMwareTools-9.9.0-2304977.tar.gz
+cd /tmp/vmware-tools-distrib
+./vmware-install.pl
+</pre>
+<h3>
+4、重启系统
+</h3>
+<pre class="prettyprint">
+reboot
+</pre>
+<h3>
+5、重新安装vmware tools
+</h3>
+<pre class="prettyprint">
+cd /usr/bin
+./vmware-config-tools.pl
+</pre>
+<h3>
+6、共享文件
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150129/1-2.jpg" alt="pic"/>
+</p>
+<p>
+<img src="{{ site:url }}/images/20150129/1-3.jpg" alt="pic"/>
+</p>
+<h3>
+7、访问共享文件
+</h3>
+<pre class="prettyprint">
+cd /mnt/hgfs
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
