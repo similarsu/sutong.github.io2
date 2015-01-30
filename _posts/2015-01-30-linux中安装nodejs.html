@@ -1,0 +1,71 @@
+---
+layout: post
+title: 在linux中安装nodejs？
+category: nodejs
+description: 在linux中安装nodejs？
+img: no.png
+keywords: linux,nodejs,安装
+---
+<p>
+
+<h3>
+在linux中安装nodejs？
+</h3>
+<h3>
+1、下载<a href="{{ site:url }}/download/20150130/node-v0.10.36-linux-x86.tar.gz" alt="下载">安装包</a>
+</h3>
+<h3>
+2、放在共享文件Install中
+</h3>
+<h3>
+3、拷贝node-v0.10.36-linux-x86.tar.gz到/tmp
+</h3>
+<pre class="prettyprint">
+cp /mnt/hgfs/Install/node-v0.10.36-linux-x86.tar.gz /tmp
+</pre>
+<h3>
+4、解压文件，并放置到/opt目录下
+</h3>
+<pre class="prettyprint">
+tar -zxvf node-v0.10.36-linux-x86.tar.gz
+mv /tmp/node-v0.10.36-linux-x86 /opt
+</pre>
+<h3>
+5、配置环境变量（对全部用户有效）
+</h3>
+<pre class="prettyprint">
+vi /etc/profile
+#加入如下信息
+NODEJS_HOME=/opt/node-v0.10.36-linux-x86
+export NODEJS_HOME
+PATH=$PATH:$NODEJS_HOME/bin
+export PATH
+</pre>
+<h3>
+6、配置环境变量（对全部用户有效）
+</h3>
+<pre class="prettyprint">
+vi /etc/profile
+#加入如下信息
+NODEJS_HOME=/opt/node-v0.10.36-linux-x86
+export NODEJS_HOME
+PATH=$PATH:$NODEJS_HOME/bin
+export PATH
+</pre>
+<h3>
+7、不用重启，使环境变量起效
+</h3>
+<pre class="prettyprint">
+source /etc/profile
+</pre>
+<h3>
+8、安装是否成功
+</h3>
+<pre class="prettyprint">
+node -v
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
