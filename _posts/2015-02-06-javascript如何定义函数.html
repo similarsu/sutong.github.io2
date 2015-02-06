@@ -1,0 +1,53 @@
+---
+layout: post
+title: javascript如何定义函数？
+category: javascript
+description: javascript如何定义函数？
+img: 20150206/1-1.jpg
+keywords: javascript,function,定义
+---
+<p>
+
+<h2 class="content_h2">
+javascript如何定义函数？
+</h2>
+<h3>
+javascript函数是一种特殊的对象。
+</h3>
+<h3>
+函数在内存中是以键值对的形式存储的。
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150206/1-1.jpg"/>
+</p>
+<h3 class="content_h2">
+函数的定义方式有如下三种。
+</h3>
+<h4>
+第一种方式
+</h4>
+<pre class="prettyprint">
+function fn1(){
+		alert("fn1");
+	}
+</pre>
+<h4>
+第二种方式
+</h4>
+<pre class="prettyprint">
+var fn2=function(){
+	alert("fn2");
+}
+</pre>
+<h4>
+第三种方式(不常见)
+</h4>
+<pre class="prettyprint">
+var fn3=new Function("num1","num2","alert(num1+num2)");
+fn3(1,2);
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
