@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>javascript函数与对象的区别？ 苏同的博客</title>
-        <meta name="keywords" content="javascript,function,对象,区别coolearth,博客"/>
+        <title>javascript函数的重载 苏同的博客</title>
+        <meta name="keywords" content="javascript,function,重载coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,48 +22,48 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">javascript函数与对象的区别？</h2>
+            <h2 class="first_title">javascript函数的重载</h2>
             <p class="posted_info">
                 posted by 苏同 on 2015-02-09 分类: <a href="/categorys/javascript.html">javascript</a>
             </p>
             
 			<div class="postcontent">
 			<h3>
-javascript函数是一种特殊的对象。
-</h3>
-<h3 class="content_h2">
-函数的赋值是通过拷贝实现的。
+javascript函数不存在重载的概念。函数的个数与调用没有关系，后面会覆盖前面的定义。
 </h3>
 <pre class="prettyprint">
-var fn1=function(){
-	alert("fn1");
+function sum(num1,num2){
+	return num1+num2;
 }
-var fn2=fn1;
-fn1();
-fn2();
-fn1=function(){
-	alert("fn11");
+
+
+function sum(num1){
+	return num1+100;
 }
-fn1();
-fn2();
+
+alert(sum(5));
+alert(sum(5,10));
 </pre>
-<p>
-<img src="/images/20150209/1-1.jpg"/>
-</p>
-<h3 class="content_h2">
-对象的赋值是通过改变引用的指向实现的。
-</h3>
-<pre class="prettyprint">
-var a=new Object();
-b=a;
-a.name="Jone";
-alert(b.name);
-</pre>
-<p>
-<img src="/images/20150209/1-2.jpg"/>
-</p>
 <h3>
-源码下载:<a href="/download/source/js/function/function_vs_object.html">function_vs_object.html</a>
+结果都是105，即调用最后一个sum函数。
+</h3>
+<h3>
+换一种方法，相信大家会容易明白点。
+</h3>
+<pre class="prettyprint">
+var sum=function(num1,num2){
+	return num1+num2;
+};
+
+var sum=function(num1){
+	return num1+100;
+};
+
+alert(sum(5));
+alert(sum(5,10));
+</pre>
+<h3>
+源码下载:<a href="/download/source/js/function/function_reload.html">function_reload.html</a>
 </h3>
 <script type="text/javascript">
 jQuery(function($){

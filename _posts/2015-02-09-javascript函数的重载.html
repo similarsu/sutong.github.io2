@@ -1,0 +1,50 @@
+---
+layout: post
+title: javascript函数的重载
+category: javascript
+description: javascript函数的重载
+img: no.png
+keywords: javascript,function,重载
+---
+<h3>
+javascript函数不存在重载的概念。函数的个数与调用没有关系，后面会覆盖前面的定义。
+</h3>
+<pre class="prettyprint">
+function sum(num1,num2){
+	return num1+num2;
+}
+
+
+function sum(num1){
+	return num1+100;
+}
+
+alert(sum(5));
+alert(sum(5,10));
+</pre>
+<h3>
+结果都是105，即调用最后一个sum函数。
+</h3>
+<h3>
+换一种方法，相信大家会容易明白点。
+</h3>
+<pre class="prettyprint">
+var sum=function(num1,num2){
+	return num1+num2;
+};
+
+var sum=function(num1){
+	return num1+100;
+};
+
+alert(sum(5));
+alert(sum(5,10));
+</pre>
+<h3>
+源码下载:<a href="{{ site:url }}/download/source/js/function/function_reload.html">function_reload.html</a>
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>
