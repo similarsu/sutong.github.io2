@@ -1,0 +1,52 @@
+---
+layout: post
+title: javascript函数传递
+category: javascript
+description: javascript函数传递
+img: no.png
+keywords: javascript,function,传递
+---
+<h3>
+由于函数是对象，所以可以通过参数传递进来。
+</h3>
+<pre class="prettyprint">
+function callFun(fun,arg){
+	return fun(arg);
+}
+
+function say(str){
+	alert("hello "+str);
+}
+
+function sum(num){
+	return num+100;
+}
+callFun(say,"John");
+
+alert(callFun(sum,10));
+</pre>
+<h3>
+函数作为返回值返回
+</h3>
+<pre class="prettyprint">
+function fn1(arg){
+	var rel=function(num){
+		return arg+num;
+	}
+	return rel;
+}
+//返回函数对象
+var f=fn1(20);
+alert(f(11));
+</pre>
+<h3>
+感觉arg的变量域扩大了一样。
+</h3>
+<h3>
+源码下载:<a href="{{ site:url }}/download/source/js/function/function_transfer.html">function_transfer.html</a>
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>

@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>javascript函数与对象的区别？ 苏同的博客</title>
-        <meta name="keywords" content="javascript,function,对象,区别coolearth,博客"/>
+        <title>javascript函数传递 苏同的博客</title>
+        <meta name="keywords" content="javascript,function,传递coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,48 +22,50 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">javascript函数与对象的区别？</h2>
+            <h2 class="first_title">javascript函数传递</h2>
             <p class="posted_info">
                 posted by 苏同 on 2015-02-09 分类: <a href="/categorys/javascript.html">javascript</a>
             </p>
             
 			<div class="postcontent">
 			<h3>
-javascript函数是一种特殊的对象。
-</h3>
-<h3 class="content_h2">
-函数的赋值是通过拷贝实现的。
+由于函数是对象，所以可以通过参数传递进来。
 </h3>
 <pre class="prettyprint">
-var fn1=function(){
-	alert("fn1");
+function callFun(fun,arg){
+	return fun(arg);
 }
-var fn2=fn1;
-fn1();
-fn2();
-fn1=function(){
-	alert("fn11");
+
+function say(str){
+	alert("hello "+str);
 }
-fn1();
-fn2();
+
+function sum(num){
+	return num+100;
+}
+callFun(say,"John");
+
+alert(callFun(sum,10));
 </pre>
-<p>
-<img src="/images/20150209/1-1.jpg"/>
-</p>
-<h3 class="content_h2">
-对象的赋值是通过改变引用的指向实现的。
-</h3>
-<pre class="prettyprint">
-var a=new Object();
-b=a;
-a.name="Jone";
-alert(b.name);
-</pre>
-<p>
-<img src="/images/20150209/1-2.jpg"/>
-</p>
 <h3>
-源码下载:<a href="/download/source/js/function/function_vs_object.html">function_vs_object.html</a>
+函数作为返回值返回
+</h3>
+<pre class="prettyprint">
+function fn1(arg){
+	var rel=function(num){
+		return arg+num;
+	}
+	return rel;
+}
+//返回函数对象
+var f=fn1(20);
+alert(f(11));
+</pre>
+<h3>
+感觉arg的变量域扩大了一样。
+</h3>
+<h3>
+源码下载:<a href="/download/source/js/function/function_transfer.html">function_transfer.html</a>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
