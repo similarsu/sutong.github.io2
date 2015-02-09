@@ -1,0 +1,47 @@
+---
+layout: post
+title: javascript函数与对象的区别？
+category: javascript
+description: javascript函数与对象的区别？
+img: 20150209/1-1.jpg
+keywords: javascript,function,对象,区别
+---
+<h3>
+javascript函数是一种特殊的对象。
+</h3>
+<h3 class="content_h2">
+对象的赋值是通过改变引用的指向实现的。
+</h3>
+<pre class="prettyprint">
+var fn1=function(){
+	alert("fn1");
+}
+var fn2=fn1;
+fn1();
+fn2();
+fn1=function(){
+	alert("fn11");
+}
+fn1();
+fn2();
+</pre>
+<p>
+<img src="{{ site:url }}/images/20150209/1-1.jpg"/>
+</p>
+<h3 class="content_h2">
+函数的赋值是通过拷贝实现的。
+</h3>
+<pre class="prettyprint">
+var a=new Object();
+b=a;
+a.name="Jone";
+alert(b.name);
+</pre>
+<p>
+<img src="{{ site:url }}/images/20150209/1-2.jpg"/>
+</p>
+<script type="text/javascript">
+jQuery(function($){
+    window.prettyPrint && prettyPrint();
+});
+</script>

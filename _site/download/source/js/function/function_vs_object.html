@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript函数和对象的比较</title>
+<script type="text/javascript">
+var fn1=function(){
+	alert("fn1");
+}
+
+var fn2=fn1;
+
+fn1();
+fn2();
+
+fn1=function(){
+	alert("fn11");
+}
+fn1();
+fn2();
+
+var a=new Object();
+b=a;
+a.name="Jone";
+alert(b.name);
+</script>
+</head>
+
+<body>
+</body>
+</html>

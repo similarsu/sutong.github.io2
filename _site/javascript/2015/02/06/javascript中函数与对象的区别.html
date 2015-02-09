@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>javascript如何定义函数？ 苏同的博客</title>
-        <meta name="keywords" content="javascript,function,定义coolearth,博客"/>
+        <title>javascript函数与对象的区别？ 苏同的博客</title>
+        <meta name="keywords" content="javascript,function,对象,区别coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">javascript如何定义函数？</h2>
+            <h2 class="first_title">javascript函数与对象的区别？</h2>
             <p class="posted_info">
                 posted by 苏同 on 2015-02-06 分类: <a href="/categorys/javascript.html">javascript</a>
             </p>
@@ -31,41 +31,37 @@
 			<h3>
 javascript函数是一种特殊的对象。
 </h3>
-<h3>
-函数在内存中是以键值对的形式存储的。
+<h3 class="content_h2">
+对象的赋值是通过改变引用的指向实现的。
 </h3>
+<pre class="prettyprint">
+var fn1=function(){
+	alert("fn1");
+}
+var fn2=fn1;
+fn1();
+fn2();
+fn1=function(){
+	alert("fn11");
+}
+fn1();
+fn2();
+</pre>
 <p>
-<img src="/images/20150206/1-1.jpg"/>
+<img src="/images/20150209/1-1.jpg"/>
 </p>
 <h3 class="content_h2">
-函数的定义方式有如下三种。
+函数的赋值是通过拷贝实现的。
 </h3>
-<h4>
-第一种方式
-</h4>
 <pre class="prettyprint">
-function fn1(){
-		alert("fn1");
-	}
+var a=new Object();
+b=a;
+a.name="Jone";
+alert(b.name);
 </pre>
-<h4>
-第二种方式
-</h4>
-<pre class="prettyprint">
-var fn2=function(){
-	alert("fn2");
-}
-</pre>
-<h4>
-第三种方式(不常见)
-</h4>
-<pre class="prettyprint">
-var fn3=new Function("num1","num2","alert(num1+num2)");
-fn3(1,2);
-</pre>
-<h4>
-源码下载:<a href="/download/source/js/function/function_define.html">function_define.html</a>
-</h4>
+<p>
+<img src="/images/20150209/1-2.jpg"/>
+</p>
 <script type="text/javascript">
 jQuery(function($){
     window.prettyPrint && prettyPrint();
