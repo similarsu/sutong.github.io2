@@ -82,7 +82,7 @@ p.sort(sortByAge);
 思考：如果该对象有100属性，按照上面的逻辑，我们不是得写100个sortByXX才能实现所有的排序，这样代码不就像
 老太婆的裹脚布又臭又长了。此时利用返回函数的方法就能轻松解决该问题。
 </h3>
-<pre>
+<pre class="prettyprint">
 function sortByProperty(prop){
 	var rel=function(pre,next){
 		if(pre[prop]>next[prop]) return 1;
