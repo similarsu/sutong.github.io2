@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>手把手github pages博客搭建第二讲：如何借用他人的jekyll模板？ 苏同的博客</title>
-        <meta name="keywords" content="github,jekyll,push,commit,clonecoolearth,博客"/>
+        <title>jekyll远程访问配置？ 苏同的博客</title>
+        <meta name="keywords" content="github,jekyll,远程访问,servercoolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,82 +22,20 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">手把手github pages博客搭建第二讲：如何借用他人的jekyll模板？</h2>
+            <h2 class="first_title">jekyll远程访问配置？</h2>
             <p class="posted_info">
-                posted by 苏同 on 2014-09-30 分类: <a href="/categorys/jekyll.html">jekyll</a>
+                posted by 苏同 on 2015-02-15 分类: <a href="/categorys/jekyll.html">jekyll</a>
             </p>
             
 			<div class="postcontent">
 			<h3>
-1、打开命令行窗口
-</h3>
-<p>
-<img src="/images/20140930/1-1.jpg"/>
-</p>
-<h3>
-2、使用现有的jekyll模版
+执行如下命令
 </h3>
 <pre>
 <code class="bash">
-git clone git@github.com:sutong/sutong.github.io.git sutong.github.io
-</pre>
-<h3>
-3、进入目录
-</h3>
-<pre>
-<code class="bash">
-cd sutong.github.io
+jekyll server --port 80 --host 192.168.1.110
 </code>
 </pre>
-<h3>
-4、删除.git文件
-</h3>
-<pre>
-<code class="bash">
-rm -rf .git
-</code>
-</pre>
-<h3>
-5、初始化git
-</h3>
-<pre>
-<code class="bash">
-git init
-</code>
-</pre>
-<h3>
-6、添加文件到版本控制
-</h3>
-<pre>
-<code class="bash">
-git add -A
-</code>
-</pre>
-<h3>
-7、提交到本地库
-</h3>
-<pre>
-<code class="bash">
-git commit -m "init the git"
-</code>
-</pre>
-<h3>
-8、添加中央仓库地址
-</h3>
-<pre>
-<code class="bash">
-git remote add origin git@github.com:sutong/sutong.github.io.git
-</code>
-</pre>
-<h3>
-9、提交到中央仓库
-</h3>
-<pre>
-<code class="bash">
-git push -u origin master
-</code>
-</pre>
-</h3>
 <script type="text/javascript">
 jQuery(function($){
     $('pre code').each(function(i, block) {
