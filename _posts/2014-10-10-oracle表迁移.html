@@ -12,23 +12,31 @@ keywords: 数据库,oracle,表,迁移
 <h4>
 1、修改用户默认表空间
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 alter user QUERY default tablespace DATA01;
+</code>
 </pre>
 <h4>
 2、迁移表到新的表空间SQL执行语句
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 select 'alter table '||v.owner||'.'|| v.table_name ||' move tablespace DATA01;' from dba_tables v where v.tablespace_name='USERS' and v.owner='QUERY';
+</code>
 </pre>
 <h4>
 3、创建索引重建的SQL执行语句
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 select 'alter index '||w.owner||'.'|| w.index_name ||' rebuild tablespace DATA01;' from dba_indexes w where w.owner='QUERY';
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

@@ -9,13 +9,17 @@ keywords: 数据库,oracle,sys,忘记,密码
 <h3>
 登陆数据库服务器
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 sqlplus /nolog
 conn / as sysdba;
 alter user sys identified by newpassword;
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

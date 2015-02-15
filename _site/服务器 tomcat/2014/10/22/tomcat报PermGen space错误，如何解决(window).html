@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -33,13 +31,17 @@
 			<h3>
 修改TOMCAT_HOME/bin/catalina.bat，在“echo "Using CATALINA_BASE:   $CATALINA_BASE"”上面加入以下行
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="ini">
 @set JAVA_OPTS=%JAVA_OPTS% -server -XX:PermSize=128M -XX:MaxPermSize=512M
+</code>
 </pre>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
             </div>

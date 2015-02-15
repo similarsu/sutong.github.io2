@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -39,30 +37,38 @@
 <h3>
 2、拷贝VMwareTools-9.9.0-2304977.tar.gz到/tmp
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 mount /dev/cdrom /mnt
 cp /mnt/VMwareTools-9.9.0-2304977.tar.gz /tmp
+</code>
 </pre>
 <h3>
 3、安装vmware tools
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 tar -zxvf VMwareTools-9.9.0-2304977.tar.gz
 cd /tmp/vmware-tools-distrib
 ./vmware-install.pl
+</code>
 </pre>
 <h3>
 4、重启系统
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 reboot
+</code>
 </pre>
 <h3>
 5、重新安装vmware tools
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 cd /usr/bin
 ./vmware-config-tools.pl
+</code>
 </pre>
 <h3>
 6、共享文件
@@ -76,12 +82,16 @@ cd /usr/bin
 <h3>
 7、访问共享文件
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 cd /mnt/hgfs
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

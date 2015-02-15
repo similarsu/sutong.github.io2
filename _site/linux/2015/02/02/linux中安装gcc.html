@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -33,45 +31,59 @@
 			<h3>
 1、挂载系统安装文件
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 mount /dev/cdrom /mnt
+</code>
 </pre>
 <h3>
 2、进入SERVER
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 cd /mnt/Server/
+</code>
 </pre>
 <h3>
 3、查找gcc
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 rpm -ivh gcc*
+</code>
 </pre>
 <h3>
 4、安装依赖
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 rpm -ivh kernel-headers-2.6.18-194.el5.i386.rpm
 rpm -ivh glibc-headers-2.5-49.i386.rpm
 rpm -ivh glibc-devel-2.5-49.i386.rpm
 rpm -ivh libgomp-4.4.0-6.el5.i386.rpm
+</code>
 </pre>
 <h3>
 5、安装
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 rpm -ivh gcc-4.1.2-48.el5.i386.rpm
+</code>
 </pre>
 <h3>
 6、查看是否安装成功
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 gcc -v
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

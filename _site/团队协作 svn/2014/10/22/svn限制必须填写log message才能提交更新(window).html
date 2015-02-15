@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -33,7 +31,8 @@
 			<h3>
 在svn服务端的仓库的hook目录下添加pre-commit.bat文件，内容如下
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="ini">
 @echo off
 setlocal
 set REPOS=%1
@@ -47,11 +46,14 @@ exit 0
 :err
 echo 提交被阻止，请填写关于此次修改的log信息（需大于10个字符），然后再重新提交! 1>&2
 exit 1
+</code>
 </pre>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
             </div>

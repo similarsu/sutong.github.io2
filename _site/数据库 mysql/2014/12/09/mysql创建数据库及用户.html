@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -36,24 +34,32 @@
 <h3>
 2、创建数据库phone
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="sql">
 create database phone;
+</code>
 </pre>
 <h3>
 3、创建用户phone
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="sql">
 create user phone identified by '123456';
+</code>
 </pre>
 <h3>
 4、授予用户phone在数据库phone下的权限
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="sql">
 grant all on phone.* to phone;
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

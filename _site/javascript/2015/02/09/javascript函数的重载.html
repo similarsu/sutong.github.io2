@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -34,7 +32,8 @@
 javascript函数不存在重载的概念。函数的参数与调用没有关系，后面会覆盖前面的定义。<br/>
 如果函数有一个参数，但传入两个参数，仅仅会匹配一个。
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 function sum(num1,num2){
 	return num1+num2;
 }
@@ -46,6 +45,7 @@ function sum(num1){
 
 alert(sum(5));
 alert(sum(5,10));
+</code>
 </pre>
 <h3>
 结果都是105，即调用最后一个sum函数。
@@ -53,7 +53,8 @@ alert(sum(5,10));
 <h3>
 换一种方法，相信大家会容易明白点。
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 var sum=function(num1,num2){
 	return num1+num2;
 };
@@ -64,13 +65,16 @@ var sum=function(num1){
 
 alert(sum(5));
 alert(sum(5,10));
+</code>
 </pre>
 <h3>
 源码下载:<a href="/download/source/js/function/function_reload.html">function_reload.html</a>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

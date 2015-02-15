@@ -15,54 +15,71 @@ keywords: github,jekyll,push,commit,clone
 <h3>
 2、使用现有的jekyll模版
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git clone git@github.com:sutong/sutong.github.io.git sutong.github.io
 </pre>
 <h3>
 3、进入目录
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 cd sutong.github.io
+</code>
 </pre>
 <h3>
 4、删除.git文件
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 rm -rf .git
+</code>
 </pre>
 <h3>
 5、初始化git
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git init
+</code>
 </pre>
 <h3>
 6、添加文件到版本控制
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git add -A
+</code>
 </pre>
 <h3>
 7、提交到本地库
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git commit -m "init the git"
+</code>
 </pre>
 <h3>
 8、添加中央仓库地址
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git remote add origin git@github.com:sutong/sutong.github.io.git
+</code>
 </pre>
 <h3>
 9、提交到中央仓库
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 git push -u origin master
+</code>
 </pre>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

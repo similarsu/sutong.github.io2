@@ -60,65 +60,85 @@ keywords: github,jekyll,ruby,rails,install
 <h4>
 2、测试一下git是否连接正常
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 ssh -T git@github.com
+</code>
 </pre>
 <h4>
 3、防止出错
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 set LC_ALL=en_US.UTF-8
 set LANG=en_US.UTF-8
+</code>
 </pre>
 <h4>
 4、稍微对配置做一下修改，把淘宝的镜像加到gem的镜像列表里
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 gem sources --remove http://rubygems.org/
 gem sources -a http://ruby.taobao.org/
+</code>
 </pre>
 <h4>
 5、查看
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 gem sources -l
+</code>
 </pre>
 <h4>
 6、安装jekyll
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 gem install jekyll
+</code>
 </pre>
 <h4>
 7、是否安装成功jekyll
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 jekyll -v
+</code>
 </pre>
 <h4>
 8、安装rdiscount kramdown
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 gem install rdiscount kramdown
+</code>
 </pre>
 <h4>
 9、新建jekyll项目
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 jekyll new blog
+</code>
 </pre>
 <h4>
 10、进入并运行jekyll项目
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 cd blog
 jekyll serve
+</code>
 </pre>
 <h4>
 11、打开浏览器，输入http://127.0.0.1:4000
 </h4>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

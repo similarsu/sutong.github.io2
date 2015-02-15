@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -33,7 +31,8 @@
 			<h3>
 由于函数是对象，所以可以通过参数传递进来。
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 function callFun(fun,arg){
 	return fun(arg);
 }
@@ -48,11 +47,13 @@ function sum(num){
 callFun(say,"John");
 
 alert(callFun(sum,10));
+</code>
 </pre>
 <h3>
 函数作为返回值返回
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 function fn1(arg){
 	var rel=function(num){
 		return arg+num;
@@ -62,6 +63,7 @@ function fn1(arg){
 //返回函数对象
 var f=fn1(20);
 alert(f(11));
+</code>
 </pre>
 <h3>
 感觉arg的变量域扩大了一样。
@@ -71,7 +73,9 @@ alert(f(11));
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

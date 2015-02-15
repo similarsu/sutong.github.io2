@@ -9,12 +9,16 @@ keywords: tomcat,PermGen space
 <h3>
 修改TOMCAT_HOME/bin/catalina.bat，在“echo "Using CATALINA_BASE:   $CATALINA_BASE"”上面加入以下行
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="ini">
 @set JAVA_OPTS=%JAVA_OPTS% -server -XX:PermSize=128M -XX:MaxPermSize=512M
+</code>
 </pre>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

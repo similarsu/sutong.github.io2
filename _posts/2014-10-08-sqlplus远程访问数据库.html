@@ -6,11 +6,15 @@ description: 不配置本地net服务名，sqlplus如何访问远程数据库？
 img: no.png
 keywords: 数据库,oracle,sqlplus,远程
 ---
-<pre class="prettyprint">
+<pre>
+<code class="bash">
 conn username/password@ip[:port]/sid [as sysdba]
+</code>
 </pre>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

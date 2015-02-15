@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -45,32 +43,40 @@ javascript函数是一种特殊的对象。
 <h4>
 第一种方式
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 function fn1(){
 		alert("fn1");
 	}
+</code>
 </pre>
 <h4>
 第二种方式
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 var fn2=function(){
 	alert("fn2");
 }
+</code>
 </pre>
 <h4>
 第三种方式(不常见)
 </h4>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 var fn3=new Function("num1","num2","alert(num1+num2)");
 fn3(1,2);
+</code>
 </pre>
 <h4>
 源码下载:<a href="/download/source/js/function/function_define.html">function_define.html</a>
 </h4>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 

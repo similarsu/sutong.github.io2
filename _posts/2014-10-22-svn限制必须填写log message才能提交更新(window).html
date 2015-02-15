@@ -9,7 +9,8 @@ keywords: svn,commit,message
 <h3>
 在svn服务端的仓库的hook目录下添加pre-commit.bat文件，内容如下
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="ini">
 @echo off
 setlocal
 set REPOS=%1
@@ -23,10 +24,13 @@ exit 0
 :err
 echo 提交被阻止，请填写关于此次修改的log信息（需大于10个字符），然后再重新提交! 1>&2
 exit 1
+</code>
 </pre>
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>

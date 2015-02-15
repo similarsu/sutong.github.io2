@@ -7,12 +7,10 @@
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
-        <link href="/js/prettify/prettify.css" rel="stylesheet" type="text/css" />
 		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="bookmark" href="/favicon.ico"/>
 		<script type="text/javascript" src="/jquery.js"></script>
-		<script type="text/javascript" src="/js/prettify/prettify.js"></script>
 		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
 </head>
 <body>
@@ -36,7 +34,8 @@ javascript函数是一种特殊的对象。
 <h3 class="content_h2">
 函数的赋值是通过拷贝实现的。
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 var fn1=function(){
 	alert("fn1");
 }
@@ -48,6 +47,7 @@ fn1=function(){
 }
 fn1();
 fn2();
+</code>
 </pre>
 <p>
 <img src="/images/20150209/1-1.jpg"/>
@@ -55,11 +55,13 @@ fn2();
 <h3 class="content_h2">
 对象的赋值是通过改变引用的指向实现的。
 </h3>
-<pre class="prettyprint">
+<pre>
+<code class="js">
 var a=new Object();
 b=a;
 a.name="Jone";
 alert(b.name);
+</code>
 </pre>
 <p>
 <img src="/images/20150209/1-2.jpg"/>
@@ -69,7 +71,9 @@ alert(b.name);
 </h3>
 <script type="text/javascript">
 jQuery(function($){
-    window.prettyPrint && prettyPrint();
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
 });
 </script>
 
