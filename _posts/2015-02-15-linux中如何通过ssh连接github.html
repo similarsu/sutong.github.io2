@@ -1,0 +1,45 @@
+---
+layout: post
+title: linux中如何通过ssh连接github
+category: 团队协作 git
+description: linux中如何通过ssh连接github
+img: no.png
+keywords: github,linux,git,ssh
+---
+<h3>
+1、生成新的ssh，放置在/data/.ssh/目录下
+</h3>
+<pre>
+<code class="bash">
+ssh-keygen -t rsa -C "821192673@qq.com"
+#为邮箱地址
+</code>
+</pre>
+<h3>
+2、将生成的私钥加入ssh-agent中
+</h3>
+<pre>
+<code class="bash">
+#判断ssh-agent是否启动
+eval "$(ssh-agent -s)"
+ssh-add /data/.ssh/id_rsa
+</code>
+</pre>
+<h3>
+3、拷贝id_rsa.pub公钥内容，并加入github的ssh中
+</h3>
+<h3>
+4、测试是否成功
+</h3>
+<pre>
+<code class="bash">
+ssh -T git@github.com
+</code>
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
