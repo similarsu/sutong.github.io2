@@ -1,0 +1,28 @@
+---
+layout: post
+title: jdbc访问11g数据库
+category: 数据库 oracle
+description: jdbc访问11g数据库
+img: no.png
+keywords: 数据库,oracle,jdbc,11g
+---
+
+<h3>
+修改url参数，注意10g与11g的区别
+</h3>
+<pre>
+<code class="bash">
+#10g
+jdbc:oracle:thin:@ip:port:sid
+#11g
+jdbc:oracle:thin:@ip:port/sid
+</code>
+</pre>
+
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
