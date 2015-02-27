@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>oracle数据库中表如何迁移？ 苏同的博客</title>
-        <meta name="keywords" content="数据库,oracle,表,迁移coolearth,博客"/>
+        <title>事务的概念及事务的4 个特性 苏同的博客</title>
+        <meta name="keywords" content="数据库,事务,概念,特性coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,46 +22,37 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">oracle数据库中表如何迁移？</h2>
+            <h2 class="first_title">事务的概念及事务的4 个特性</h2>
             <p class="posted_info">
-                posted by 苏同 on 2014-10-10 分类: <a href="/categorys/数据库 oracle.html">数据库 oracle</a>
+                posted by 苏同 on 2015-02-27 分类: <a href="/categorys/数据库 oracle.html">数据库 oracle</a>
             </p>
             
 			<div class="postcontent">
-			<h3 class="content_h2">
-场景如下：将USERS表空间下QUERY用户下的所有表迁移到DATA01表空间
+			<h3 content="content_h2">
+概念
 </h3>
 <h4>
-1、修改用户默认表空间
+事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位。
 </h4>
-<pre>
-<code class="bash">
-alter user QUERY default tablespace DATA01;
-</code>
-</pre>
+<h3 content="content_h2">
+特性
+</h3>
 <h4>
-2、迁移表到新的表空间SQL执行语句
+事务具有4 个特性：原子性（Atomicity ）、一致性（consistency ）、隔离性( Isolation ）和持续性（Durability ）。这4 个特性也简称为ACID 特性。
 </h4>
-<pre>
-<code class="bash">
-select 'alter table '||v.owner||'.'|| v.table_name ||' move tablespace DATA01;' from dba_tables v where v.tablespace_name='USERS' and v.owner='QUERY';
-</code>
-</pre>
-<h4>
-3、创建索引重建的SQL执行语句
+<h4> 
+原子性：事务是数据库的逻辑工作单位，事务中包括的诸操作要么都做，要么都不做。
 </h4>
-<pre>
-<code class="bash">
-select 'alter index '||w.owner||'.'|| w.index_name ||' rebuild tablespace DATA01;' from dba_indexes w where w.owner='QUERY';
-</code>
-</pre>
-<script type="text/javascript">
-jQuery(function($){
-    $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-	});
-});
-</script>
+<h4> 
+一致性：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。
+</h4> 
+<h4> 
+隔离性：一个事务的执行不能被其他事务干扰。即一个事务内部的操作及使用的数据对其他并发事务是隔离的，并发执行的各个事务之间不能互相干扰。
+</h4>
+<h4> 
+持续性：持续性也称永久性（Perfnanence ) ，指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的。接下来的其他操作或故障不应该对其执行结果有任何影响。
+</h4>
+
 
             </div>
             
