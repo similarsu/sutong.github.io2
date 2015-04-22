@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>rabbitmq在windows平台下环境搭建？ 苏同的博客</title>
-        <meta name="keywords" content="rabbitmq,erlang,installcoolearth,博客"/>
+        <title>spring aop术语 苏同的博客</title>
+        <meta name="keywords" content="spring,aop,术语coolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,60 +22,82 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">rabbitmq在windows平台下环境搭建？</h2>
+            <h2 class="first_title">spring aop术语</h2>
             <p class="posted_info">
-                posted by 苏同 on 2015-04-21 分类: <a href="/categorys/rabbitmq.html">rabbitmq</a>
+                posted by 苏同 on 2015-04-22 分类: <a href="/categorys/spring aop.html">spring aop</a>
             </p>
             
 			<div class="postcontent">
-			<h3>
-1、下载erlang<a href="/download/20150421/otp_win64_17.5.exe">点此下载</a>
+			<h3 class="content_h2">
+Joinpoint(连接点)
 </h3>
-<h3>
-2、安装
+<h4>
+程序执行的某个特定位置（如类开始初始化前、类初始化后、类某个方法调用前、调用后、方法抛出异常后）。<br/>
+一个类或一段程序代码拥有一些具有边界性质的特定点。<br/>
+spring仅支持方法的连接点，即仅能在方法调用前、方法调用后、方法抛出异常时及方法调用前后程序执行点织入代码。<br/>
+连接点有两个信息确定：第一是用方法表示的程序执行点，第二是用相对点表示的方位。<br/>
+spring使用切点对执行点进行定位，而方位则在增强类型中定义。
+</h4>
+<h3 class="content_h2">
+切点(Pointcut)
 </h3>
-<h3>
-3、配置环境变量
+<h4>
+每个程序类都拥有多个连接点，即连接点是程序类中客观存在的事物。<br/>
+AOP通过切点定位特定连接点。<br/>
+连接点相当于数据库中的记录，而切点相当于查询条件。<br/>
+一个切点可以匹配多个连接点。
+</h4>
+<h3 class="content_h2">
+增强(advice)
 </h3>
-<p>
-<img src="/images/20150421/1-1.jpg"/>
-</p>
-<h3>
-4、下载rabbitmq<a href="/download/20150421/rabbitmq-server-3.5.1.exe">点此下载</a>
+<h4>
+增强是织入目标类连接点上的一段程序代码。<br/>
+在spring中，增强除由于描述一段程序代码外，还拥有执行点的方位信息。
+</h4>
+<h3 class="content_h2">
+目标类（Target）
 </h3>
-<h3>
-5、安装
+<h4>
+增强逻辑的织入目标类。
+</h4>
+<h3 class="content_h2">
+引介（Introduction）
 </h3>
-<h3>
-6、配置环境变量
+<h4>
+是一种特殊的增强，为目标类增加一些属性和方法。一个类本来没有实现某个接口，通过引介功能，<br/>
+可以动态为该类添加接口的实现逻辑。
+</h4>
+<h3 class="content_h2">
+织入（Weaving)
 </h3>
-<p>
-<img src="/images/20150421/1-2.jpg"/>
-</p>
-<p>
-<img src="/images/20150421/1-3.jpg"/>
-</p>
-<h3>
-7、安装web监控
+<h4>
+将增强添加到目标类具体连接点的过程。<br/>
+AOP有三种织入方式：<br/>
+1、编译期织入，使用特殊的JAVA编译期<br/>
+2、类装载期织入，使用特殊的类装载期<br/>
+3、动态代理织入，在运行期为目标类添加增强生成子类的方式<br/>
+spring采用动态代理织入，而AspectJ采用编译期织入和类装载期织入。
+</h4>
+<h3 class="content_h2">
+代理（Proxy)
 </h3>
-<pre>
-<code class="bash">
-rabbitmq-plugins enable rabbitmq_management
-</code>
-</pre>
-<h3>
-8、重启服务
+<h4>
+一个类被AOP织入增强后，就生成一个融合了原类和增强逻辑的代理类。<br/>
+代理类可能是和原类具有相同接口的类，也可能是原类的子类。
+</h4>
+<h3 class="content_h2">
+切面（Aspect)
 </h3>
-<pre>
-<code class="bash">
-rabbitmq-service stop
-rabbitmq-service start
-</code>
-</pre>
-<h3>
-9、打开浏览器，输入http://localhost:15672<br/>
-默认用户及密码：guest/guest
+<h4>
+由切点和增强组成。
+</h4>
+<h3 class="content_h2">
+AOP的工作重点
 </h3>
+<h4>
+1、如何通过切点和增强定位到连接点上。<br/>
+2、如何在增强中编写切面的代码。
+</h4>
 <script type="text/javascript">
 jQuery(function($){
     $('pre code').each(function(i, block) {
@@ -83,13 +105,16 @@ jQuery(function($){
 	});
 });
 </script>
+
             </div>
             
     		<div class="likepost">
     			<h2>相关日志</h2>
     			<ul>
     				
-    				<li><a href="/rabbitmq/2015/04/21/rabbitmq%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">rabbitmq在windows平台下环境搭建？</a></li>
+    				<li><a href="/spring%20aop/2015/04/22/%E7%AC%AC%E4%BA%8C%E8%AE%B2%EF%BC%9Aspring%20aop%E6%9C%AF%E8%AF%AD.html">spring aop术语</a></li>
+    				
+    				<li><a href="/spring%20aop/2015/03/05/%E7%AC%AC%E4%B8%80%E8%AE%B2%EF%BC%9Aspring%20aop%E6%A6%82%E8%BF%B0.html">spring aop概述</a></li>
     				
     			</ul>
     		</div>

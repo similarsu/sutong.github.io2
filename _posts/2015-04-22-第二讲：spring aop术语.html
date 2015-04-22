@@ -1,0 +1,85 @@
+---
+layout: post
+title: spring aop术语
+category: spring aop
+description: spring aop术语
+img: no.png
+keywords: spring,aop,术语
+---
+<h3 class="content_h2">
+Joinpoint(连接点)
+</h3>
+<h4>
+程序执行的某个特定位置（如类开始初始化前、类初始化后、类某个方法调用前、调用后、方法抛出异常后）。<br/>
+一个类或一段程序代码拥有一些具有边界性质的特定点。<br/>
+spring仅支持方法的连接点，即仅能在方法调用前、方法调用后、方法抛出异常时及方法调用前后程序执行点织入代码。<br/>
+连接点有两个信息确定：第一是用方法表示的程序执行点，第二是用相对点表示的方位。<br/>
+spring使用切点对执行点进行定位，而方位则在增强类型中定义。
+</h4>
+<h3 class="content_h2">
+切点(Pointcut)
+</h3>
+<h4>
+每个程序类都拥有多个连接点，即连接点是程序类中客观存在的事物。<br/>
+AOP通过切点定位特定连接点。<br/>
+连接点相当于数据库中的记录，而切点相当于查询条件。<br/>
+一个切点可以匹配多个连接点。
+</h4>
+<h3 class="content_h2">
+增强(advice)
+</h3>
+<h4>
+增强是织入目标类连接点上的一段程序代码。<br/>
+在spring中，增强除由于描述一段程序代码外，还拥有执行点的方位信息。
+</h4>
+<h3 class="content_h2">
+目标类（Target）
+</h3>
+<h4>
+增强逻辑的织入目标类。
+</h4>
+<h3 class="content_h2">
+引介（Introduction）
+</h3>
+<h4>
+是一种特殊的增强，为目标类增加一些属性和方法。一个类本来没有实现某个接口，通过引介功能，<br/>
+可以动态为该类添加接口的实现逻辑。
+</h4>
+<h3 class="content_h2">
+织入（Weaving)
+</h3>
+<h4>
+将增强添加到目标类具体连接点的过程。<br/>
+AOP有三种织入方式：<br/>
+1、编译期织入，使用特殊的JAVA编译期<br/>
+2、类装载期织入，使用特殊的类装载期<br/>
+3、动态代理织入，在运行期为目标类添加增强生成子类的方式<br/>
+spring采用动态代理织入，而AspectJ采用编译期织入和类装载期织入。
+</h4>
+<h3 class="content_h2">
+代理（Proxy)
+</h3>
+<h4>
+一个类被AOP织入增强后，就生成一个融合了原类和增强逻辑的代理类。<br/>
+代理类可能是和原类具有相同接口的类，也可能是原类的子类。
+</h4>
+<h3 class="content_h2">
+切面（Aspect)
+</h3>
+<h4>
+由切点和增强组成。
+</h4>
+<h3 class="content_h2">
+AOP的工作重点
+</h3>
+<h4>
+1、如何通过切点和增强定位到连接点上。<br/>
+2、如何在增强中编写切面的代码。
+</h4>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
