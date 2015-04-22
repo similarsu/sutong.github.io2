@@ -1,0 +1,63 @@
+---
+layout: post
+title: rabbitmq在windows平台下环境搭建？
+category: rabbitmq
+description: rabbitmq在windows平台下环境搭建
+img: 20150421/1-1.jpg
+keywords: rabbitmq,erlang,install
+---
+<h3>
+1、下载erlang<a href="{{ site:url }}/download/20150421/otp_win64_17.5.exe">点此下载</a>
+</h3>
+<h3>
+2、安装
+</h3>
+<h3>
+3、配置环境变量
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150421/1-1.jpg"/>
+</p>
+<h3>
+4、下载rabbitmq<a href="{{ site:url }}/download/20150421/rabbitmq-server-3.5.1.exe">点此下载</a>
+</h3>
+<h3>
+5、安装
+</h3>
+<h3>
+6、配置环境变量
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150421/1-2.jpg"/>
+</p>
+<p>
+<img src="{{ site:url }}/images/20150421/1-3.jpg"/>
+</p>
+<h3>
+7、安装web监控
+</h3>
+<pre>
+<code class="bash">
+rabbitmq-plugins enable rabbitmq_management
+</code>
+</pre>
+<h3>
+8、重启服务
+</h3>
+<pre>
+<code class="bash">
+rabbitmq-service stop
+rabbitmq-service start
+</code>
+</pre>
+<h3>
+9、打开浏览器，输入http://localhost:15672
+guest/guest
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>

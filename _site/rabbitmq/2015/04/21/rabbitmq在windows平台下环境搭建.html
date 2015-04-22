@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>rabbitmq在windows平台下环境搭建？ 苏同的博客</title>
+        <meta name="keywords" content="rabbitmq,erlang,installcoolearth,博客"/>
+        <meta name="description" content="苏同的博客,记录" />
+		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
+        <link href="/css/common.css" rel="stylesheet" type="text/css" />
+		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/favicon.ico"/>
+		<link rel="bookmark" href="/favicon.ico"/>
+		<script type="text/javascript" src="/jquery.js"></script>
+		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
+</head>
+<body>
+        <div class="wrap">
+		<div class="header radius black">
+			<h2><a href="/">苏同的博客</a></h2>
+			<span class="right">流氓不可怕，就怕流氓有文化</span>
+		</div>
+
+	<div class="main">
+		<div class="postbox radius">
+            <h2 class="first_title">rabbitmq在windows平台下环境搭建？</h2>
+            <p class="posted_info">
+                posted by 苏同 on 2015-04-21 分类: <a href="/categorys/rabbitmq.html">rabbitmq</a>
+            </p>
+            
+			<div class="postcontent">
+			<h3>
+1、下载erlang<a href="/download/20150421/otp_win64_17.5.exe">点此下载</a>
+</h3>
+<h3>
+2、安装
+</h3>
+<h3>
+3、配置环境变量
+</h3>
+<p>
+<img src="/images/20150421/1-1.jpg"/>
+</p>
+<h3>
+4、下载rabbitmq<a href="/download/20150421/rabbitmq-server-3.5.1.exe">点此下载</a>
+</h3>
+<h3>
+5、安装
+</h3>
+<h3>
+6、配置环境变量
+</h3>
+<p>
+<img src="/images/20150421/1-2.jpg"/>
+</p>
+<p>
+<img src="/images/20150421/1-3.jpg"/>
+</p>
+<h3>
+7、安装web监控
+</h3>
+<pre>
+<code class="bash">
+rabbitmq-plugins enable rabbitmq_management
+</code>
+</pre>
+<h3>
+8、重启服务
+</h3>
+<pre>
+<code class="bash">
+rabbitmq-service stop
+rabbitmq-service start
+</code>
+</pre>
+<h3>
+9、打开浏览器，输入http://localhost:15672
+guest/guest
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
+            </div>
+            
+    		<div class="likepost">
+    			<h2>相关日志</h2>
+    			<ul>
+    				
+    				<li><a href="/rabbitmq/2015/04/21/rabbitmq%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">rabbitmq在windows平台下环境搭建？</a></li>
+    				
+    			</ul>
+    		</div>
+			
+			<div id="disqus_thread"></div>
+            <script src="http://mat1.gtimg.com/app/openjs/openjs.js#autoboot=no&debug=no"></script>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
+		
+	</div>
+		<div class="blank20"></div>
+                <div class="footer radius">
+                        &copy; 苏同 2014-2015 Powered by GitHub <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>
+                </div>
+		<div style="display:none;">
+		<script type="text/javascript">
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?7b66f86d8bae2ec8898fcdd8dd578896";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+		</div>
+        </div>
+		<div>
+		 <script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function () {
+				var s = document.createElement('script'); s.async = true;
+				s.type = 'text/javascript';
+				s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+				(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+			}());
+			</script>
+		</div>
+</body>
+</html>
+
+
