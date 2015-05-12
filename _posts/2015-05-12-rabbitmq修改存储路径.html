@@ -1,0 +1,43 @@
+---
+layout: post
+title: rabbitmq修改存储路径
+category: rabbitmq
+description: rabbitmq修改存储路径
+img: 20150512/1-1.jpg
+keywords: rabbitmq,修改,存储路径
+---
+<h3>
+1、设置RABBIT_BASE环境变量
+</h3>
+<p>
+<img src="{{ site:url }}/images/20150422/1-1.jpg"/>
+</p>
+<h3>
+2、安装web监控，在命令提示符中输入如下代码（记得重启命令提示符和管理权限）
+</h3>
+<pre>
+<code class="bash">
+rabbitmq-plugins enable rabbitmq_management
+</code>
+</pre>
+<h3>
+3、启动服务
+</h3>
+<pre>
+<code class="bash">
+#更新服务配置
+rabbitmq-service install
+rabbitmq-service start
+</code>
+</pre>
+<h3>
+4、打开浏览器，输入http://localhost:15672<br/>
+默认用户及密码：guest/guest
+</h3>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
