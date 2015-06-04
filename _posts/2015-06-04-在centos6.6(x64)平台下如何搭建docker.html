@@ -1,0 +1,49 @@
+---
+layout: post
+title: 在centos6.6(x64)平台下如何搭建docker？
+category: docker
+description: 在centos6.6(x64)平台下如何搭建docker
+img: no.png
+keywords: docker,centos6.6,install
+---
+<h3>
+1、安装epel源
+</h3>
+<pre>
+<code class="bash">
+yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</code>
+</pre>
+<h3>
+<h3>
+2、安装docker
+</h3>
+<pre>
+<code class="bash">
+yum install docker-io
+</code>
+</pre>
+<h3>
+3、启动docker
+</h3>
+<pre>
+<code class="bash">
+service docker start
+chkconfig docker on#设置开机启动
+</code>
+</pre>
+<h3>
+4、验证是否启动成功
+</h3>
+<pre>
+<code class="bash">
+docker info
+</code>
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
