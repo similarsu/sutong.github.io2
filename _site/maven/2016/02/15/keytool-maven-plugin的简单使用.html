@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>keytool-maven-plugin插件的简单使用？ 苏同的博客</title>
+        <meta name="keywords" content="maven,keytool-maven-plugincoolearth,博客"/>
+        <meta name="description" content="苏同的博客,记录" />
+		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
+        <link href="/css/common.css" rel="stylesheet" type="text/css" />
+		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/favicon.ico"/>
+		<link rel="bookmark" href="/favicon.ico"/>
+		<script type="text/javascript" src="/jquery.js"></script>
+		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
+</head>
+<body>
+        <div class="wrap">
+		<div class="header radius black">
+			<h2><a href="/">苏同的博客</a></h2>
+			<span class="right">流氓不可怕，就怕流氓有文化</span>
+		</div>
+
+	<div class="main">
+		<div class="postbox radius">
+            <h2 class="first_title">keytool-maven-plugin插件的简单使用？</h2>
+            <p class="posted_info">
+                posted by 苏同 on 2016-02-15 分类: <a href="/categorys/maven.html">maven</a>
+            </p>
+            
+			<div class="postcontent">
+			<h2 class="content_h2">
+在pom文件的plugin节点中加入如下内容
+</h2>
+<pre>
+<code class="xml">
+&lt;plugin&gt;
+	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+	&lt;artifactId&gt;keytool-maven-plugin&lt;/artifactId&gt;
+	&lt;version&gt;1.4&lt;/version&gt;
+	&lt;configuration&gt;
+		&lt;keystore&gt;${basedir}/src/main/resources/yands.keystore&lt;/keystore&gt;
+		&lt;dname&gt;cn=localhost&lt;/dname&gt;
+		&lt;keypass&gt;changeit&lt;/keypass&gt;
+		&lt;storepass&gt;changeit&lt;/storepass&gt;
+		&lt;alias&gt;yands&lt;/alias&gt;
+		&lt;keyalg&gt;RSA&lt;/keyalg&gt;
+		&lt;file&gt;${basedir}/src/main/resources/yands.cer&lt;/file&gt;
+	&lt;/configuration&gt;
+&lt;/plugin&gt;
+</code>
+</pre>
+<h2 class="content_h2">
+解释如下
+</h2>
+<p>
+<img src="/images/20160215/1-1.jpg"/>
+</p>
+<h2 class="content_h2">
+步骤如下
+</h2>
+<h3>
+1、删除已经存在的keystore文件
+</h3>
+<pre>
+<code class="bash">
+keytool:clean
+</code>
+</pre>
+<h3>
+2、生成keystore文件
+</h3>
+<pre>
+<code class="bash">
+keytool:generateKeyPair
+</code>
+</pre>
+<h3>
+3、生成客户端使用cer文件
+</h3>
+<pre>
+<code class="bash">
+keytool:exportCertificate
+</code>
+</pre>
+<script type="text/javascript">
+jQuery(function($){
+    $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+	});
+});
+</script>
+            </div>
+            
+    		<div class="likepost">
+    			<h2>相关日志</h2>
+    			<ul>
+    				
+    				<li><a href="/maven/2016/02/15/keytool-maven-plugin%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8.html">keytool-maven-plugin插件的简单使用？</a></li>
+    				
+    			</ul>
+    		</div>
+			
+			<div id="disqus_thread"></div>
+            <script src="http://mat1.gtimg.com/app/openjs/openjs.js#autoboot=no&debug=no"></script>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
+		
+	</div>
+		<div class="blank20"></div>
+                <div class="footer radius">
+                        &copy; 苏同 2014-2015 Powered by GitHub <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>
+                </div>
+		<div style="display:none;">
+		<script type="text/javascript">
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?7b66f86d8bae2ec8898fcdd8dd578896";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+		</div>
+        </div>
+		<div>
+		 <script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function () {
+				var s = document.createElement('script'); s.async = true;
+				s.type = 'text/javascript';
+				s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+				(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+			}());
+			</script>
+		</div>
+</body>
+</html>
+
+
