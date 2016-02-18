@@ -2,8 +2,8 @@
 <html>
 <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>keytool-maven-plugin插件的简单使用？ 苏同的博客</title>
-        <meta name="keywords" content="maven,keytool-maven-plugincoolearth,博客"/>
+        <title>jetty-maven-plugin如何配置ssl 苏同的博客</title>
+        <meta name="keywords" content="maven,jetty-maven-plugin,sslcoolearth,博客"/>
         <meta name="description" content="苏同的博客,记录" />
 		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
         <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -22,72 +22,92 @@
 
 	<div class="main">
 		<div class="postbox radius">
-            <h2 class="first_title">keytool-maven-plugin插件的简单使用？</h2>
+            <h2 class="first_title">jetty-maven-plugin如何配置ssl</h2>
             <p class="posted_info">
                 posted by 苏同 on 2016-02-15 分类: <a href="/categorys/maven.html">maven</a>
             </p>
             
 			<div class="postcontent">
 			<h2 class="content_h2">
-在pom文件的plugin节点中加入如下内容
+配置ssl
 </h2>
+<h3>
+在pom文件的jetty插件配置中添加如下内容
+</h3>
 <pre>
 <code class="xml">
-&lt;plugin&gt;
-	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-	&lt;artifactId&gt;keytool-maven-plugin&lt;/artifactId&gt;
-	&lt;version&gt;1.4&lt;/version&gt;
-	&lt;configuration&gt;
-		&lt;keystore&gt;${basedir}/src/main/resources/yands.keystore&lt;/keystore&gt;
-		&lt;dname&gt;cn=localhost&lt;/dname&gt;
-		&lt;keypass&gt;changeit&lt;/keypass&gt;
-		&lt;storepass&gt;changeit&lt;/storepass&gt;
-		&lt;alias&gt;yands&lt;/alias&gt;
-		&lt;keyalg&gt;RSA&lt;/keyalg&gt;
-		&lt;file&gt;${basedir}/src/main/resources/yands.cer&lt;/file&gt;
-	&lt;/configuration&gt;
-&lt;/plugin&gt;
+ &lt;configuration&gt;
+	&lt;scanIntervalSeconds&gt;3&lt;/scanIntervalSeconds&gt;
+	&lt;webAppConfig&gt;
+		&lt;contextPath&gt;/&lt;/contextPath&gt;
+	&lt;/webAppConfig&gt;
+	&lt;!--新增内容--&gt;
+	&lt;connectors&gt;
+		&lt;connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector"&gt;
+			&lt;port&gt;8080&lt;/port&gt;                   
+		&lt;/connector&gt;
+		&lt;connector implementation="org.eclipse.jetty.server.ssl.SslSelectChannelConnector"&gt;
+			&lt;port&gt;8443&lt;/port&gt;
+			&lt;maxIdleTime&gt;60000&lt;/maxIdleTime&gt;
+			&lt;keystore&gt;${basedir}/src/main/resources/yands.keystore&lt;/keystore&gt;
+			&lt;password&gt;changeit&lt;/password&gt;
+			&lt;keyPassword&gt;changeit&lt;/keyPassword&gt;
+		&lt;/connector&gt;
+	&lt;/connectors&gt;
+&lt;/configuration&gt;
 </code>
 </pre>
-<h2 class="content_h2">
+<h3>
 解释如下
-</h2>
+</h3>
 <p>
-<img src="/images/20160215/1-1.jpg"/>
+<img src="/images/20160215/1-2.jpg"/>
 </p>
 <h2 class="content_h2">
-步骤如下
+强制某些链接走https协议
 </h2>
 <h3>
-1、删除已经存在的keystore文件
+在web.xml添加如下内容
 </h3>
 <pre>
-<code class="bash">
-keytool:clean
+<code class="xml">
+&lt;security-constraint&gt;
+	&lt;web-resource-collection&gt;
+		&lt;web-resource-name&gt;SSL&lt;/web-resource-name&gt;
+		&lt;url-pattern&gt;/login&lt;/url-pattern&gt;
+	&lt;/web-resource-collection&gt;
+	&lt;user-data-constraint&gt;
+		&lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+	&lt;/user-data-constraint&gt;
+&lt;/security-constraint&gt;
 </code>
 </pre>
 <h3>
-2、生成keystore文件
+解释如下
 </h3>
-<pre>
-<code class="bash">
-keytool:generateKeyPair
-</code>
-</pre>
+<p>
+<img src="/images/20160215/1-3.jpg"/>
+</p>
 <h3>
-3、生成客户端使用cer文件
+在pom.xml的connector节点添加如下内容
 </h3>
 <pre>
-<code class="bash">
-keytool:exportCertificate
+<code class="xml">
+&lt;connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector"&gt;
+	&lt;port&gt;8080&lt;/port&gt;
+	&lt;!--跳转https端口--&gt;
+	&lt;confidentialPort&gt;8443&lt;/confidentialPort&gt;
+&lt;/connector&gt;
 </code>
 </pre>
+
 <script type="text/javascript">
 jQuery(function($){
     $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
 	});
 });
+
 </script>
             </div>
             

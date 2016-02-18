@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>markdown学习 苏同的博客</title>
+        <meta name="keywords" content="markdowncoolearth,博客"/>
+        <meta name="description" content="苏同的博客,记录" />
+		<meta name="baidu-site-verification" content="7P3zJDwukPDw2LOy" />
+        <link href="/css/common.css" rel="stylesheet" type="text/css" />
+		<link href="/js/highlight/dark.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/favicon.ico"/>
+		<link rel="bookmark" href="/favicon.ico"/>
+		<script type="text/javascript" src="/jquery.js"></script>
+		<script type="text/javascript" src="/js/highlight/highlight.pack.js"></script>
+</head>
+<body>
+        <div class="wrap">
+		<div class="header radius black">
+			<h2><a href="/">苏同的博客</a></h2>
+			<span class="right">流氓不可怕，就怕流氓有文化</span>
+		</div>
+
+	<div class="main">
+		<div class="postbox radius">
+            <h2 class="first_title">markdown学习</h2>
+            <p class="posted_info">
+                posted by 苏同 on 2016-02-18 分类: <a href="/categorys/markdown.html">markdown</a>
+            </p>
+            
+			<div class="postcontent">
+			<p>1.标题设置（让字体变大，和word的标题意思一样）</p>
+
+<pre><code>在Markdown当中设置标题，有两种方式：
+第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。
+第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）
+</code></pre>
+
+<h1 id="section">测试</h1>
+<p>测试
+-
+#测试
+##测试</p>
+
+<p>2.块注释（blockquote）</p>
+
+<pre><code>通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）
+</code></pre>
+
+<p>第一种</p>
+
+<blockquote>
+  <p>测试</p>
+</blockquote>
+
+<p>第二种</p>
+
+<blockquote>
+  <pre><code>测试
+</code></pre>
+</blockquote>
+
+<p>3.斜体</p>
+
+<pre><code>将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来
+</code></pre>
+
+<p>测试<em>测试</em><em>测试</em></p>
+
+<p>4.粗体</p>
+
+<pre><code>将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来
+</code></pre>
+
+<p>测试<strong>测试</strong><strong>测试</strong></p>
+
+<p>5.无序列表</p>
+
+<pre><code>在文字开头添加(*, +, and -)实现无序列表。但是要注意在(*, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）
+</code></pre>
+
+<ul>
+  <li>apple</li>
+  <li>banana</li>
+  <li>
+    <p>pine</p>
+  </li>
+  <li>apple</li>
+  <li>banana</li>
+  <li>
+    <p>pine</p>
+  </li>
+  <li>apple</li>
+  <li>banana</li>
+  <li>pine</li>
+</ul>
+
+<p>6.有序列表</p>
+
+<pre><code>使用数字后面跟上句号。（还要有空格）
+</code></pre>
+
+<ol>
+  <li>第一名</li>
+  <li>第二名</li>
+  <li>第三名</li>
+</ol>
+
+<p>7.链接（Links）</p>
+
+<pre><code>Markdown中有两种方式，实现链接，分别为内联方式和引用方式。
+内联方式：This is an [example link](http://example.com/).
+引用方式：I get 10 times more traffic from [Google][1]than from[Yahoo][2] or [MSN][3].  
+[1]: http://google.com/     "Google"
+[2]: http://search.yahoo.com/  "Yahoo Search" 
+[3]: http://search.msn.com/    "MSN Search"
+</code></pre>
+
+<p>点此进入<a href="https://www.baidu.com">百度</a></p>
+
+<p>点此进入 [百度][1] [百度][2] [百度][3]
+[1]: http://www.baidu.com “百度”
+[2]: http://www.baidu.com “百度”
+[3]: http://www.baidu.com “百度” </p>
+
+<p>8.图片（Images）</p>
+
+<pre><code>图片的处理方式和链接的处理方式，非常的类似。
+内联方式：![alttext](/path/to/img.jpg "Title") 
+引用方式：![alt text][id][id]: /path/to/img.jpg "Title"
+</code></pre>
+
+<p><img src="http://images.china.cn/attachement/jpg/site1000/20101215/001aa0ba776e0e72e3af22.jpg" alt="小鸟" title="小鸟" /></p>
+
+<p>图片1![小鸟][1]图片2![小鸟][2]
+[1]:http://images.china.cn/attachement/jpg/site1000/20101215/001aa0ba776e0e72e3af22.jpg “小鸟”
+[2]:http://images.china.cn/attachement/jpg/site1000/20101215/001aa0ba776e0e72e3af22.jpg “小鸟”</p>
+
+<p>9.代码（HTML中所谓的Code）</p>
+
+<pre><code>实现方式有两种：
+第一种：简单文字出现一个代码框。使用`&lt;blockquote&gt;`。（`不是单引号而是左上角的ESC下面~中的`）
+第二种：大片文字需要实现代码框。使用Tab和四个空格。
+</code></pre>
+
+<p>第一种方式</p>
+
+<p><code>public class Student
+    {
+        private String nae;
+        private int age;
+        public String getName
+        {  
+        return name;    
+        }
+    }</code>
+第二种方</p>
+
+<pre><code>{"name":"测试",age:12}
+</code></pre>
+
+<p>或</p>
+
+<pre><code>{"name":"测试",age:12}
+</code></pre>
+
+<p>10.脚注（footnote</p>
+
+<pre><code>实现方式如下：
+hello[^hello]
+[^hello]: hi
+</code></pre>
+
+<p>hello<sup id="fnref:hello"><a href="#fn:hello" class="footnote">1</a></sup></p>
+
+<p>11.下划线</p>
+
+<pre><code>在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）
+</code></pre>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:hello">
+      <p>hi <a href="#fnref:hello" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+            </div>
+            
+    		<div class="likepost">
+    			<h2>相关日志</h2>
+    			<ul>
+    				
+    				<li><a href="/markdown/2016/02/18/markdown%E5%AD%A6%E4%B9%A0.html">markdown学习</a></li>
+    				
+    			</ul>
+    		</div>
+			
+			<div id="disqus_thread"></div>
+            <script src="http://mat1.gtimg.com/app/openjs/openjs.js#autoboot=no&debug=no"></script>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
+		
+	</div>
+		<div class="blank20"></div>
+                <div class="footer radius">
+                        &copy; 苏同 2014-2015 Powered by GitHub <a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>
+                </div>
+		<div style="display:none;">
+		<script type="text/javascript">
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?7b66f86d8bae2ec8898fcdd8dd578896";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+		</div>
+        </div>
+		<div>
+		 <script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = 'coolearth'; // required: replace example with your forum shortname
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function () {
+				var s = document.createElement('script'); s.async = true;
+				s.type = 'text/javascript';
+				s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+				(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+			}());
+			</script>
+		</div>
+</body>
+</html>
+
+
